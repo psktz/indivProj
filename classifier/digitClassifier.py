@@ -91,7 +91,6 @@ def MNIST_convolutional_NN():
 
 model = MNIST_convolutional_NN()
 print(model.summary())
-model.save("basicMNISTmodel.h5")
 
 
 results = model.fit(training_dataset, training_categories,
@@ -101,7 +100,10 @@ results = model.fit(training_dataset, training_categories,
 
 loss, accuracy = model.evaluate(test_dataset_conv, test_categories, batch_size=64)
 
-print('Test loss: %.4f accuracy: %.4f' % (loss, accuracy))
-print('Test Loss is: ' + loss + " and Test Accuracy is:" + accuracy)
+
+model.save("basicMNISTmodel.h5")
+model.model.save("basicMNISTmodel2.h5")
+
+print('Test Loss is: ' + str(float(loss)) + " and Test Accuracy is:" + str(float(accuracy)))
 
 

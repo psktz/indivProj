@@ -24,10 +24,8 @@ test_categories = to_categorical(labels_test,total_classes)
 training_categories.shape, test_categories.shape
 
 
-training_dataset_conv = training.astype('float32') / 255.
 test_dataset_conv = test.astype('float32') / 255.
 
 # evaluate the model
 loss, accuracy = model.evaluate(test_dataset_conv, test_categories, batch_size=64)
-print('Test loss: %.4f accuracy: %.4f' % (loss, accuracy))
-print('Test Loss is: ' + loss + " and Test Accuracy is:" + accuracy)
+print('Test Loss is: ' + str(loss) + " and Test Accuracy is: " + str(accuracy))
