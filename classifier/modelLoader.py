@@ -29,3 +29,6 @@ test_dataset_conv = test.astype('float32') / 255.
 # evaluate the model
 loss, accuracy = model.evaluate(test_dataset_conv, test_categories, batch_size=64)
 print('Test Loss is: ' + str(loss) + " and Test Accuracy is: " + str(accuracy))
+
+prediction = model.predict_classes(np.array(test_dataset_conv[1],ndmin=4))
+print(prediction) #2
