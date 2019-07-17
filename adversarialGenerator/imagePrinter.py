@@ -11,10 +11,13 @@ def printImage(image,label):
     plt.imshow(image, cmap='gray')
     plt.show()
 
-def reverseAndPrintImage(image):
+def reverseAndPrintImage(image,number):
     reversedone = (image * 255).astype(int)
     reversed = np.reshape(reversedone, (60000, 28, 28))
-    plt.imshow(reversed,cmap='gray')
+    plt.imshow(reversed[number],cmap='gray')
+    plt.show()
+
+reverseAndPrintImage(digits_training,0)
 
 # plt.title('Label is {label}'.format(label=labels_training[3]))
 # plt.axis("off")
