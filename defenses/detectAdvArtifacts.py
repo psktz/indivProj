@@ -51,7 +51,7 @@ def main():
         kernel_denisities[i] = KernelDensity(kernel='gaussian', bandwidth=1.2).fit(
             training_density_features[class_inds[i]])
 
-    print('Computing model predictions...')
+    print(' model predictions...')
     model_predictions_test_dataset = model.predict_classes(test_dataset, verbose=0, batch_size=256)
     model_predictions_noisy_dataset = model.predict_classes(noisy_dataset, verbose=0, batch_size=256)
     model_predictions_adversarial_dataset = model.predict_classes(adversarial_test_dataset, verbose=0, batch_size=256)
