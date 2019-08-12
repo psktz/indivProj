@@ -31,7 +31,7 @@ def printAccountValues():
 
 def main():
     print("1. Seller deploys contract")
-    t = accounts[0].deploy(PrototypeContract, 100000000000000000000, 100, 50, 30, 20,a[11])
+    t = accounts[0].deploy(PrototypeOne, 100000000000000000000, 100, 50, 30, 20,a[11])
 
     printAccountValues()
 

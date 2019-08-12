@@ -5,11 +5,11 @@ import "./ABDKMathQuad.sol";
 
 //import "github.com/abdk-consulting/abdk-libraries-solidity/ABDKMathQuad.sol";
 
-contract PrototypeContract {
+contract PrototypeOne {
 
     using ABDKMathQuad for *;
     mapping(address => uint8) public buyers;
-    address payable[] buyersArray;
+    address payable[] public buyersArray;
 
     struct cleanClaimant {
         address payable claimAddress;
@@ -31,20 +31,18 @@ contract PrototypeContract {
     bytes16 totalCleanPool;
     bytes16 totalAdvPool;
     address payable public thirdPartyAddress;
-    uint start;
-    uint end;
-    address payable seller;
+    uint public start;
+    uint public end;
+    address payable public seller;
     uint public price;
-    uint testerShare;
+    uint public testerShare;
     uint public testPool;
     uint startTime;
     uint public ownerDeposit;
-    uint cleanDeposit;
-    uint adversarialDeposit;
     uint public cleanCount;
     uint public advCount;
     uint public buyerIndex;
-    uint possibleClients;
+    uint public possibleClients;
     bytes16 priceBytes16;
     bytes16 decay;
     uint hundred;
@@ -53,11 +51,11 @@ contract PrototypeContract {
     bytes16 negOne16;
     bytes16 possibleClients16;
     bytes16 formulaDenominator;
-    bool collateralWasPaid;
+    bool public collateralWasPaid;
     uint coveredDeposits;
     bytes16 testerShare16;
-    bool thirdPartyInvoked;
-    bool forcedThirdInvocation;
+    bool public thirdPartyInvoked;
+    bool public forcedThirdInvocation;
 
 
     event ContractCreation(uint _price, uint _possibleClients, uint _decayPct, uint _durationInDays, uint _testerShare, address sellerAddress);
@@ -139,6 +137,7 @@ contract PrototypeContract {
             collateralWasPaid = true;
             emit SellerDeposit(msg.sender, amountToBeDeposited, msg.value - amountToBeDeposited);
         } else {
+            require(buyers[msg.sender]==0 && msg.sender!= seller);
             buyersArray.push(msg.sender);
             buyers[msg.sender] = 1;
             buyerIndex++;
